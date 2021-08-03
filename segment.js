@@ -83,9 +83,8 @@ angular.module('ngSegment').constant('segmentDefaultConfig', {
                             console.error('Error loading Segment library.');
                         };
 
-                        // Insert our script next to the first script element.
-                        var first = document.getElementsByTagName('script')[0];
-                        first.parentNode.insertBefore(script, first);
+                        var head = document.getElementsByTagName('head')[0];
+                        head.appendChild(script);
                     }, delayMs);
                 } else {
                     throw new Error('Cannot load Analytics.js without an API key.');
